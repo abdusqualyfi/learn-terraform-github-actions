@@ -34,6 +34,7 @@ resource "random_pet" "sg" {}
 resource "azurerm_network_security_group" "web-sg" {
   name     = "${random_pet.sg.id}-sg"
   location = "East US"
+  resource_group_name = "Abdus-Terraform"
 
   security_rule {
     name                       = "Allow_HTTP_Inbound"
@@ -51,6 +52,7 @@ resource "azurerm_network_security_group" "web-sg" {
 resource "azurerm_public_ip" "web-ip" {
   name              = "${random_pet.sg.id}-ip"
   location          = "East US"
+  resource_group_name = "Abdus-Terraform"
   allocation_method = "Dynamic"
 }
 
